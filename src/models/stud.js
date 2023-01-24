@@ -1,3 +1,4 @@
+
 // requiring mongoose for schema model
 const mongoose = require("mongoose")
 
@@ -29,6 +30,10 @@ const studSchema = new mongoose.Schema({
         unique: true
     }
 })
+
+
+
+
 
 
 // creating a new collection
