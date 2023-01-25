@@ -23,7 +23,8 @@ const studSchema = new mongoose.Schema({
     gender:{
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        enum: ['Male', 'Female']
     },
     ranking:{
         type: Number,
