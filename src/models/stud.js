@@ -18,6 +18,7 @@ const studSchema = new mongoose.Schema({
     subject:[{
         type: String,
         required: true,
+        enum:['English', 'Hindi', 'Mathematics', 'Physics', 'Chemistry', 'Biology', 'Algebra', 'Geometry']
     }],
     gender:{
         type: String,
