@@ -15,7 +15,7 @@ const schema = {
     id: {
       type: "string",
       format: "objectId",
-      required: true
+      required: true,
     }
   }
 }
