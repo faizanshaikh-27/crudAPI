@@ -1,5 +1,5 @@
 const express = require("express")
-const studentDB = require("../src/db/conn")
+const studentDataBase = require("../src/db/conn")
 const router = require("../src/routers/router")
 const app = express()
 const port = process.env.PORT || 3000

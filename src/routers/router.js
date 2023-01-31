@@ -1,16 +1,16 @@
 const express = require("express")
 const router = new express.Router()
 const StudentRanking = require("../models/stud")
-const {postRequest} = require("../controller/controller")
-const {getRequest} = require("../controller/controller")
-const {getIndividualRequest} = require("../controller/controller")
-const {patchIndividualRequest} = require("../controller/controller")
-const {deleteIndividualRequest} = require("../controller/controller")
+const {addingStudentRequest} = require("../controller/addingStudentToDatabase") //post
+const {readingStudentRequest} = require("../controller/readingStudentInDatabase") //get
+const {readingIndividualStudentRequest} = require("../controller/readingIndividualStudentInDatabase") //get individual
+const {updatingIndividualStudentRequest} = require("../controller/updatingStudentInDatabase") // patch individual
+const {deletingIndividualStudentRequest} = require("../controller/deletingStudentInDatabase")
 
-router.post("/", postRequest)
-router.get("/", getRequest )
-router.get("/:id", getIndividualRequest)
-router.patch("/:id", patchIndividualRequest)
-router.delete("/:id", deleteIndividualRequest)
+router.post("/", addingStudentRequest)
+router.get("/", readingStudentRequest )
+router.get("/:id", readingIndividualStudentRequest)
+router.patch("/updatingIndividualStudentRequest", updatingIndividualStudentRequest)
+router.delete("/:id", deletingIndividualStudentRequest)
 
 module.exports = router;
