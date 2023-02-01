@@ -31,11 +31,14 @@ const schema = {
         const addingStudentRecords = new StudentRanking(req.body)
         console.log(req.body)
       const insertStudent = await addingStudentRecords.save();
-      res.status(201).send(insertStudent);
+      res.status(201).send("Inserted Sucessfully");
   
     } catch (error) {
-      res.status(400).send(error)
-    }
+      if (error.name === "Validation Error") {
+        return res.status(400).send({ message: "Invalid Data", error: error })
+      }
+      return res.status(500).send({message: "Internal Server Error", error: error})
+      }
   }
   
   module.exports= {addingStudentRequest}

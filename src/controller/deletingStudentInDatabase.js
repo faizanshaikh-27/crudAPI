@@ -37,7 +37,7 @@ const deletingIndividualStudentRequest = async (req, res) => {
   } catch (error) {
     if (req.params != req.body) {
       return res.status(400).json("Invalid ID, Please Enter a valid ID")
-    }
+    } 
     res.status(500).send(error)
   }
 }
