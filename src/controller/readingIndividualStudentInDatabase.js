@@ -37,9 +37,7 @@ const readingIndividualStudentRequest = async (req, res) => {
       const valid = v.validate(req.params, schema)
       if(valid.errors.length) {
         return res.status(400).json({ message: "Invalid ID, please enter a Valid ID"})
-      }
-
-      if (!req.params.id)
+      } else if (!req.params.id)
     return res.status(400).send({ message: "Missing student id in URL" });
     
       const _id = req.params.id;
