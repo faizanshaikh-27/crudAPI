@@ -21,6 +21,16 @@ const schema = {
   }
 }
 
+const readingMiddleware = async (req, res, next) => {
+  let readingValidation = await StudentRanking(req.body)
+  if (!readingValidation) {
+      return res.status(400).json({ message: "Read Error, Please try again" })
+  } else {
+      console.log("This is a Read Middleware Hello")
+  }
+  next()
+}
+
 // get Individual Request
 const readingIndividualStudentRequest = async (req, res) => {
     try {
@@ -42,4 +52,4 @@ const readingIndividualStudentRequest = async (req, res) => {
     }
   }
 
-  module.exports = {readingIndividualStudentRequest}
+  module.exports = {readingMiddleware, readingIndividualStudentRequest}

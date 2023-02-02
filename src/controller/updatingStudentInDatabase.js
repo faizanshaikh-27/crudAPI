@@ -25,6 +25,16 @@ const studentPatchSchema = {
   }
 }
 
+const updatingMiddleware = async (req, res, next) => {
+  let updatingValidation = await StudentRanking(req.body)
+  if (!updatingValidation) {
+      return res.status(400).json({ message: "Updating Error, Please try again" })
+  } else {
+      console.log("This is a Update Middleware Hello")
+  }
+  next()
+}
+
 
 // patch Individual Request
 const updatingIndividualStudentRequest = async (req, res) => {
@@ -47,4 +57,4 @@ const updatingIndividualStudentRequest = async (req, res) => {
     }
   }
 
-  module.exports = {updatingIndividualStudentRequest}
+  module.exports = {updatingMiddleware, updatingIndividualStudentRequest}

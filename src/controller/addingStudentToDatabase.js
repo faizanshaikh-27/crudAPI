@@ -21,6 +21,18 @@ const schema = {
       ranking: { type: 'integer' }
     }
   }
+
+  const addingMiddleware = async (req, res, next) => {
+    let addingValidation = await StudentRanking(req.body)
+    if (!addingValidation) {
+        return res.status(400).json({ message: "Post Error, Please try again" })
+    } else {
+        console.log("This is a Post middleware Hello")
+    }
+    next()
+}
+
+ 
   // post Request
   const addingStudentRequest = async (req, res) => {
     try {
@@ -41,4 +53,4 @@ const schema = {
       }
   }
   
-  module.exports= {addingStudentRequest}
+  module.exports= {addingMiddleware, addingStudentRequest}
